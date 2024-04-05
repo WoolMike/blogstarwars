@@ -1,15 +1,43 @@
-import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
+
+import { Card } from "../component/card";
 import "../../styles/home.css";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<h1>Hello Rigo!</h1>
-		<p>
-			<img src={rigoImage} />
-		</p>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
+
+export const Home = () => {
+	const {store, actions} = useContext(Context)
+	return (
+	<div id="homePage">
+		<div className="mt-5 d-flex flex-column w-100 align-items-center">
+			<h1>Characters</h1>
+			<div id="cardDiv" className="d-flex flex-nowrap overflow-scroll align-items-stretch">
+				{store.characters.map((item, index) => {
+					return (
+						<Card item = {item} index = {index} key = {index} category = "characters" />
+					)
+				})}
+			</div>
+		</div>
+		<div className="mt-5 d-flex flex-column w-100 align-items-center">
+			<h1>Planets</h1>
+			<div id="cardDiv" className="d-flex flex-nowrap overflow-scroll align-items-stretch">
+				{store.planets.map((item, index) => {
+					return (
+						<Card item = {item} index = {index} key = {index} category = "planets" />
+					)
+				})}
+			</div>
+		</div>
+		<div className="mt-5 d-flex flex-column w-100 align-items-center">
+			<h1>Starships</h1>
+			<div id="cardDiv" className="d-flex flex-nowrap overflow-scroll align-items-stretch">
+				{store.starships.map((item, index) => {
+					return (
+						<Card item = {item} index = {index} key = {index} category = "starships" />
+					)
+				})}
+			</div>
+		</div>
 	</div>
-);
+)};
