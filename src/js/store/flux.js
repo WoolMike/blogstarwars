@@ -1,5 +1,5 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	let apiUrl = "https://swapi.dev/api/"
+	let apiUrl = "https://www.swapi.tech/api/"
 	return {
 		store: {
 			characters: [],

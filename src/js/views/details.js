@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { useLocation, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/details.css";
+import "../../styles/mediaQuery.css";
 import emptyPicImg from "../../img/star-wars-empty.jpg";
 
 
@@ -41,14 +42,19 @@ export const Details = ({ category }) => {
 						<h2 id="detailsName">
 							<u>
 								{
-									category == "characters" ? character.name : 
-									category == "planets" ? planet.name :
-									starship.name
+									category == "characters" ? character?.name : 
+									category == "planets" ? planet?.name :
+									starship?.name
 								}
 							</u>
 						</h2>
 						<p id="detailsNameDesc">
-							Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. 
+							{
+								category == "characters" ? character?.properties?.mass : 
+								category == "planets" ? planet?.description :
+									starship?.description
+							}
+						 
 						</p>
 					</div>
 				</div>
@@ -64,9 +70,9 @@ export const Details = ({ category }) => {
 						</h6>
 						<p>
 							{
-								category == "characters" ? character.birth_year : 
-								category == "planets" ? planet.terrain :
-								starship.manufacturer
+								category == "characters" ? character?.birth_year: 
+								category == "planets" ? planet?.terrain :
+								starship?.manufacturer
 							}
 						</p>
 					</div>
@@ -80,9 +86,9 @@ export const Details = ({ category }) => {
 						</h6>
 						<p>
 							{
-								category == "characters" ? character.gender : 
-								category == "planets" ? planet.climate :
-								starship.starship_class
+								category == "characters" ? character?.gender : 
+								category == "planets" ? planet?.climate :
+								starship?.tarship_class
 							}
 						</p>
 					</div>
@@ -96,9 +102,9 @@ export const Details = ({ category }) => {
 						</h6>
 						<p>
 							{
-								category == "characters" ? character.height : 
-								category == "planets" ? planet.gravity :
-								starship.max_atmosphering_speed
+								category == "characters" ? character?.height : 
+								category == "planets" ? planet?.gravity :
+								starship?.max_atmosphering_speed
 							}
 						</p>
 					</div>
@@ -112,9 +118,9 @@ export const Details = ({ category }) => {
 						</h6>
 						<p>
 							{
-								category == "characters" ? character.mass : 
-								category == "planets" ? planet.diameter :
-								starship.crew
+								category == "characters" ? character?.mass : 
+								category == "planets" ? planet?.diameter :
+								starship?.crew
 							}
 						</p>
 					</div>
@@ -128,9 +134,9 @@ export const Details = ({ category }) => {
 						</h6>
 						<p>
 							{
-								category == "characters" ? character.skin_color : 
-								category == "planets" ? planet.surface_water :
-								starship.passengers
+								category == "characters" ? character?.skin_color : 
+								category == "planets" ? planet?.surface_water :
+								starship?.passengers
 							}
 						</p>
 					</div>
@@ -144,9 +150,9 @@ export const Details = ({ category }) => {
 						</h6>
 						<p>
 							{
-								category == "characters" ? character.eye_color : 
-								category == "planets" ? planet.population :
-								starship.consumables
+								category == "characters" ? character?.eye_color : 
+								category == "planets" ? planet?.population :
+								starship?.consumables
 							}
 						</p>
 					</div>
